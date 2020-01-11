@@ -9,9 +9,21 @@
     </head>
         
     <body>
+        <h1>Use Button to Execute JavaScript</h1>
         <button onclick="showCongratulations(this)">Click Me!</button>
         <section id="result_display"></section>
         
+        <h1>Tell a Story</h1>
+        <p>Story name</p>
+        <input id="input_name" type="text"></input>
+        <section>
+            <button onclick="loadStory()">Load Story</button>
+            <button onclick="saveStory()">Save Story</button>
+            <button onclick="displayStory()">Display Story</button>
+        </section>
+        <textarea id="story_editor" cols="30" rows="10" placeholder="Write your story..."></textarea>
+
+
         <script src="week01.js"></script>
     </body>
 </html>
