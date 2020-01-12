@@ -27,6 +27,7 @@ button:active {
 input, textarea {
     box-shadow: 0px 0px 5px #666666 inset;
     border: none;
+    padding: 5px;
 }
 
 textarea {
