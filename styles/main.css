@@ -36,3 +36,4 @@ h2 {
 }
 .more::after { 
     content: ": more to come";
+}
