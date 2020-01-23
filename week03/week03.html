@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Week03</title>
+</head>
+<body>
+    <h1>Using <code>this</code> keyword</h1>
+
+    <p>Name: <span id="fullName"></span></p>
+    <p>Birthday: <span id="fullBirthDay"></span></p>
+    <p>Address: <span id="fullAddress"></span></p>
+
+    <script>
+        // Create an object:
+        var person = {
+            firstName: "John",
+            lastName : "Doe",
+            birthDay : 31,
+            birthMonth : "December",
+            birthYear : 1999,
+            road : "123 Maple Street",
+            city : "New York City",
+            state : "New York",
+            zip : 12345,
+
+            fullName : function() {
+                return  this.firstName + " " +
+                        this.lastName;
+            },
+            fullBirthDay : function() {
+                return	this.birthMonth + " " +
+                        this.birthDay   + ", " +
+                        this.birthYear;
+            },
+            fullAddress : function() {
+                return	this.road  + "<br/>" +
+                        this.city  + ", " +
+                        this.state + " " +
+                        this.zip;
+            }
+        };
+
+        // Display data from the object:
+        document.getElementById("fullName"    ).innerHTML = person.fullName();
+        document.getElementById("fullBirthDay").innerHTML = person.fullBirthDay();
+        document.getElementById("fullAddress" ).innerHTML = person.fullAddress();
+
+    </script>
+
+</body>
+</html>
