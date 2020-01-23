@@ -15,28 +15,56 @@
 
     <script>
         // Create an object:
-        var person = {
+        let person = {
             firstName  : "John",
             lastName   : "Doe",
-
-            birthDay   : 31,
-            birthMonth : "December",
-            birthYear  : 1999,
-            
-            road       : "123 Maple Street",
-            city       : "New York City",
-            state      : "New York",
-            zip        : 12345,
 
             fullName : function() {
                 return  this.firstName + " " +
                         this.lastName;
             },
+
+            // birthDay   : 31,
+            // birthMonth : "December",
+            // birthYear  : 1999,
+            
+            // fullBirthDay : function() {
+            //     return	this.birthMonth + " " +
+            //             this.birthDay   + ", " +
+            //             this.birthYear;
+            // },
+
+            // road       : "123 Maple Street",
+            // city       : "New York City",
+            // state      : "New York",
+            // zip        : 12345,
+
+            // fullAddress : function() {
+            //     return	this.road  + "<br/>" +
+            //             this.city  + ", " +
+            //             this.state + " " +
+            //             this.zip;
+            // }
+        };
+
+        let birth = {
+            birthDay   : 31,
+            birthMonth : "December",
+            birthYear  : 1999,
+
             fullBirthDay : function() {
                 return	this.birthMonth + " " +
                         this.birthDay   + ", " +
                         this.birthYear;
-            },
+            }
+        };
+
+        let address = {
+            road       : "123 Maple Street",
+            city       : "New York City",
+            state      : "New York",
+            zip        : 12345,
+
             fullAddress : function() {
                 return	this.road  + "<br/>" +
                         this.city  + ", " +
@@ -47,8 +75,8 @@
 
         // Display data from the object:
         document.getElementById("fullName"    ).innerHTML = person.fullName();
-        document.getElementById("fullBirthDay").innerHTML = person.fullBirthDay();
-        document.getElementById("fullAddress" ).innerHTML = person.fullAddress();
+        document.getElementById("fullBirthDay").innerHTML = birth.fullBirthDay();
+        document.getElementById("fullAddress" ).innerHTML = address.fullAddress();
 
     </script>
 
