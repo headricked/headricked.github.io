@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Week 2 Team Activity</title>
+
+        <script>
+            function problem1() {
+                var input = document.getElementById('problem1input').value;
+
+                document.getElementById('problem1content').innerHTML += '<p>You entered: ' + input + '</p>';
+            }
+
+            function problem2(number) {
+                var total = 0;
+
+                if (!isNaN(number)) {
+                    for (number; number > 0; number--) {
+                        total += parseInt(number);
+                    }
+                }
+                document.getElementById('problem2content').innerHTML += '<p>' + total + '</p>';
+            }
+
+            function problem3Add() {
+                doOperation('+');
+            }
+
+            problem3Subtract = () => {
+                doOperation('-');
+            }
+
+            problem3Multiply = function() {
+                doOperation('*');
+            }
+
+            function doOperation(opcode) {
+                var firstValue = parseInt(document.getElementById("problem3input").value);
+                var secondValue = parseInt(document.getElementById("problem3input2").value);
+
+                var output;
+                if (opcode == '+') {
+                    output = firstValue + secondValue;
+                } else if (opcode == '-') {
+                    output = firstValue - secondValue;
+                } else {
+                    output = firstValue * secondValue;
+                }
+
+                document.getElementById('problem3content').innerHTML += '<p>' + output + '</p>';
+            }
+
+
+        </script>
+
+    </head>
+
+    <h1>Problem 1</h1>
+    <input id="problem1input" type="text"/>
+    <div id="problem1content"/>
+    <button id="problem1button" onclick="problem1()">Submit</button>
+
+    <h1>Problem 2</h1>
+    <input id="problem2input" type="text"/>
+    <button id="problem2button" onclick='problem2(document.getElementById("problem2input").value)'>Submit</button>
+    <div id="problem2content"/>
+
+
+    <h1>Problem 3</h1>
+    <input id="problem3input" type="text"/>
+    <button id="problem3button" onclick="problem3Add()">+</button>
+    <button id="problem3button" onclick="problem3Subtract()">-</button>
+    <button id="problem3button" onclick="problem3Multiply()">*</button>
+    <input id="problem3input2" type="text"/>
+    <div id="problem3content"/>
+
+
+
+</html>
