@@ -12,9 +12,11 @@
     <p>Name: <span id="fullName"></span></p>
     <p>Birthday: <span id="fullBirthDay"></span></p>
     <p>Address: <span id="fullAddress"></span></p>
+    <br/>
+    <p>Full Profile: <span id="fullProfile"></span></p>
 
     <script>
-        // Create an object:
+        // Create an object with various properties, including a method using the this keyword:
         let person = {
             firstName  : "Sven",
             middleName : "S",
@@ -25,31 +27,9 @@
                         this.middleName + " " +
                         this.lastName;
             },
-
-            // birthDay   : 31,
-            // birthMonth : "December",
-            // birthYear  : 1999,
-            
-            // fullBirthDay : function() {
-            //     return	this.birthMonth + " " +
-            //             this.birthDay   + ", " +
-            //             this.birthYear;
-            // },
-
-            // road       : "123 Maple Street",
-            // city       : "New York City",
-            // state      : "New York",
-            // zip        : 12345,
-
-            // fullAddress : function() {
-            //     return	this.road  + "<br/>" +
-            //             this.city  + ", " +
-            //             this.state + " " +
-            //             this.zip;
-            // }
         };
 
-        // Create an object:
+        // Create an object with various properties, including a method using the this keyword:
         let birth = {
             birthDay   : 31,
             birthMonth : "December",
@@ -62,7 +42,7 @@
             }
         };
 
-        // Create an object:
+        // Create an object with various properties, including a method using the this keyword:
         let address = {
             road       : "123 Maple Street",
             city       : "New York City",
@@ -77,10 +57,23 @@
             }
         };
 
+        let userProfile = {
+            person  : person.fullName,
+            birth   : birth.fullBirthDay,
+            address : address.fullAddress,
+
+            fullProfile : function() {
+                return  this.person + "<br/>" +
+                        this.birth + "<br/>" +
+                        this.address;
+            }
+        }
+
         // Display data from the objects:
         document.getElementById("fullName"    ).innerHTML = person.fullName();
         document.getElementById("fullBirthDay").innerHTML = birth.fullBirthDay();
         document.getElementById("fullAddress" ).innerHTML = address.fullAddress();
+        document.getElementById("fullProfile" ).innerHTML = userProfile.fullProfile();
 
     </script>
 
