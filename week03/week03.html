@@ -105,9 +105,14 @@
             }
         }
 
-        // verify only the superman object's properties are present:
+        // verify only the keys of the superman object's properties are present:
         for(const key of Object.keys(superman)) {
-            console.log(key);
+            console.log("keys: " + key);
+        }
+
+        // verify only the values of the superman object's properies are present:
+        for(const value of Object.values(superman)) {
+            console.log("values: " + value);
         }
 
     </script>
