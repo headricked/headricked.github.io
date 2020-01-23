@@ -93,10 +93,17 @@
             }
         };
 
-        // iterate through the superman object's properties and display them in the console log:
+        // verify object's own properties are returned:
         for(const key in superman) {
-            console.log(key + ": " + superman[key]);
+            if(superman.hasOwnProperty(key)){
+                console.log(key + ": " + superman[key]);
+            }
         }
+
+        // iterate through the superman object's properties and display them in the console log:
+        // for(const key in superman) {
+        //     console.log(key + ": " + superman[key]);
+        // }
     </script>
 
 </body>
