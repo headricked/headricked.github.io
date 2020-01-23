@@ -78,32 +78,25 @@
 
         // create new object
         const superman = {
-            name: 'Superman',
-            'real name': 'Clark Kent',
-            height: 75,
-            weight: 235,
-            hero: true,
-            villain: false,
-            allies: ['Batman','Supergirl','Superboy'],
+            name        : 'Superman',
+            'real name' : 'Clark Kent',
+            height      : 75,
+            weight      : 235,
+            hero        : true,
+            villain     : false,
+            allies      : ['Batman','Supergirl','Superboy'],
+            love : function() {
+                return 'I love Lois Lane!';
+            },
             fly() {
                 return 'Up, up and away!';
             }
         };
 
+        // iterate through the superman object's properties and display them in the console log:
         for(const key in superman) {
             console.log(key + ": " + superman[key]);
         }
-        // << "name: Superman"
-        // << "real name: Clark Kent"
-        // << "height: 75"
-        // << "weight: 235"
-        // << "hero: true"
-        // << "villain: false"
-        // << "allies: Batman,Supergirl,Superboy"
-        // << "fly: function () {
-        //     console.log(\"Up, up and away!\");
-        // }"
-
     </script>
 
 </body>
