@@ -75,6 +75,35 @@
         document.getElementById("fullAddress" ).innerHTML = address.fullAddress();
         document.getElementById("fullProfile" ).innerHTML = userProfile.fullProfile();
 
+
+        // create new object
+        const superman = {
+            name: 'Superman',
+            'real name': 'Clark Kent',
+            height: 75,
+            weight: 235,
+            hero: true,
+            villain: false,
+            allies: ['Batman','Supergirl','Superboy'],
+            fly() {
+                return 'Up, up and away!';
+            }
+        };
+
+        for(const key in superman) {
+            console.log(key + ": " + superman[key]);
+        }
+        // << "name: Superman"
+        // << "real name: Clark Kent"
+        // << "height: 75"
+        // << "weight: 235"
+        // << "hero: true"
+        // << "villain: false"
+        // << "allies: Batman,Supergirl,Superboy"
+        // << "fly: function () {
+        //     console.log(\"Up, up and away!\");
+        // }"
+
     </script>
 
 </body>
