@@ -86,7 +86,7 @@
             villain     : false,
             allies      : ['Batman','Supergirl','Superboy'],
             love : function() {
-                return 'I love Lois Lane!';
+                return 'I like Lois Lane!';
             },
             fly() {
                 return 'Up, up and away!';
@@ -113,6 +113,11 @@
         // verify only the values of the superman object's properies are present:
         for(const value of Object.values(superman)) {
             console.log("values: " + value);
+        }
+
+        // verify only the keys and values of the superman object properties are present:
+        for(const [key,value] of Object.entries(superman)) {
+            console.log(`key: ${key}: value: ${value}`);
         }
 
     </script>
