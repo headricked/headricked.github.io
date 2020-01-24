@@ -120,6 +120,14 @@
             console.log(`key: ${key}: value: ${value}`);
         }
 
+        // dice
+        const dice = {
+            sides: 6,
+            roll() {
+                let result = Math.floor(this.sides * Math.random()) + 1;
+                console.log("dice result: " + result);
+            }
+        }
     </script>
 
 </body>
