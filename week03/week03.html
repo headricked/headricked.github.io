@@ -143,9 +143,15 @@
             }
         };
 
-        // generate a random number
+        // generate a random number between 1 and any given number
         let maxNum;
         function generateRandomNumber(maxNum) {
+            return Math.floor(maxNum * Math.random()) + 1;
+        }
+
+        // generate a random number between zero and any given number
+        let maxNum;
+        function generateRandomNumber0(maxNum) {
             return Math.floor(maxNum * Math.random());
         }
 
