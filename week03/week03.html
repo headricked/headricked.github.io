@@ -128,6 +128,21 @@
                 return Math.floor(this.sides * Math.random()) + 1;
             }
         }
+
+        // Namespacing of object methods
+        const myMaths = {
+            square(x) {
+                return x * x;
+            },
+            mean(array,callback) {
+                if (callback) {
+                array.map( callback );
+                } 
+                const total = array.reduce((a, b) => a + b);
+                return total/array.length;
+            }
+        };
+
     </script>
 
 </body>
