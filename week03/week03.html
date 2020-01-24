@@ -144,8 +144,8 @@
         };
 
         // generate a random number
-        function generateRandomNumber() {
-            let maxNum = 6;
+        let maxNum;
+        function generateRandomNumber(maxNum) {
             return Math.floor(maxNum * Math.random());
         }
 
