@@ -50,3 +50,11 @@ addEventListener('keypress', (event) => console.log(`You pressed the ${event.key
 // modifier key event listener
 addEventListener('keydown', (event) => console.log(`You pressed the ${event.key} character`));
 
+// using the remove event listener
+const onceParagraph = document.getElementById('once');
+onceParagraph.addEventListener('click', remove);
+function remove(event) {
+    console.log('Enjoy this while it lasts!');
+    onceParagraph.style.backgroundColor = 'pink';
+    onceParagraph.removeEventListener('click',remove);
+}
