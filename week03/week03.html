@@ -160,24 +160,33 @@
         }
 
 
+        // mountains object
         const MOUNTAINS = [
-            {name: "Kilimanjaro", height: 5895, place: "Tanzania"},
-            {name: "Everest", height: 8848, place: "Nepal"},
-            {name: "Mount Fuji", height: 3776, place: "Japan"},
-            {name: "Vaalserberg", height: 323, place: "Netherlands"},
-            {name: "Denali", height: 6168, place: "United States"},
-            {name: "Popocatepetl", height: 5465, place: "Mexico"},
-            {name: "Mont Blanc", height: 4808, place: "Italy/France"}
+            {name: "Kilimanjaro",   height: 5895,   place: "Tanzania"},
+            {name: "Everest",       height: 8848,   place: "Nepal"},
+            {name: "Mount Fuji",    height: 3776,   place: "Japan"},
+            {name: "Vaalserberg",   height: 323,    place: "Netherlands"},
+            {name: "Denali",        height: 6168,   place: "United States"},
+            {name: "Popocatepetl",  height: 5465,   place: "Mexico"},
+            {name: "Mont Blanc",    height: 4808,   place: "Italy/France"}
         ];
 
+        // build the table
         function buildTable(data) {
+
+            // create the table element
             let table = document.createElement("table");
 
+            // create an array containing 
             let fields = Object.keys(data[0]);
+            
+            // create the table row element
             let headRow = document.createElement("tr");
             
+
             fields.forEach(function(field) {
             
+            // create the table header element
             let headCell = document.createElement("th");
             
             headCell.appendChild(document.createTextNode(field));
