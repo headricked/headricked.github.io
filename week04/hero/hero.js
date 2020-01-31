@@ -52,12 +52,15 @@ function makeHero(event) {
         }
     }
 
+
     const label = form.querySelector('label');
     const error = document.createElement('div');
     error.classList.add('error');
     error.textContent = '! Your name is not allowed to start with X.';
     label.append(error);
 
+
+    form.heroName.addEventListener('keyup',validateInline,false);
     function validateInline() {
         const heroName = this.value.toUpperCase();
         if(heroName.startsWith('X')){
@@ -66,6 +69,16 @@ function makeHero(event) {
         error.style.display = 'none';
         }
     }
+
+
+    // form.heroName.addEventListener('keyup',disableSubmit,false);
+    // function disableSubmit(event) {
+    //     if(event.target.value === ''){
+    //         document.getElementById('submit').disabled = true;
+    //     } else {
+    //         document.getElementById('submit').disabled = false;
+    //     }
+    // }
 
     // convert object to JSON string and display in alert dialog
     alert(JSON.stringify(hero));
