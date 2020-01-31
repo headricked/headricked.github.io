@@ -9,11 +9,14 @@ function makeHero(event) {
 
     // create a super powers property based on the checked checkbox values
     hero.powers = [];
-    for (let i = 0; i < hero.powers.length; i++) {
-        if (hero.powers[i].checked) {
-            hero.powers.push(form.powers[i].value);    
+    for (let i = 0; i < form.powers.length; i++) {
+        if (form.powers[i].checked) {
+            // push the checked value onto the hero.powers array
+            hero.powers.push(form.powers[i].value);
         }
     };
+
+    // hero.powers = [...form.powers].filter(box => box.checked).map(box => box.value);
 
     alert(JSON.stringify(hero)); // convert object to JSON string and display in alert dialog
     return hero;
