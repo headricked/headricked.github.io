@@ -9,7 +9,7 @@
         <ul>
             <li>
                 <label for="heroName">Name:
-                    <input type="text" id="heroName" name="heroName" autofocus placeholder="Your Super Hero Name" maxlength=32>
+                    <input type="text" id="heroName" name="heroName" autofocus placeholder="Your Super Hero Name" maxlength=32 required>
                 </label>
             </li>
             <li>
@@ -73,8 +73,25 @@
                     <input type='number' id='age' name='age' min=0 step=1></label>
             </li>
 
+            <li>
+                <label for='City'>Base of Operations:
+                    <select name='city' id='city'>
+                        <option value='' selected>Choose a City</option>
+                        <option value='Metropolis'>Metropolis</option>
+                        <option value='Gotham City'>Gotham City</option>
+                        <option value='Keystone City'>Keystone City</option>
+                        <option value='Coast City'>Coast City</option>
+                        <option value='Star City'>Star City</option>
+                    </select>
+                </label>
+            </li>
 
-
+            <li>
+                <label for='origin'>Origin Story:
+                    <textarea id='origin' name='origin' rows='20' cols='60'></textarea>
+                </label>
+            </li>
+            
         </ul>
     
         <button type="submit">Submit</button>

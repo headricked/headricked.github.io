@@ -34,6 +34,25 @@ function makeHero(event) {
     // create an age property based on the input field's value
     hero.age = form.age.value;
 
-    alert(JSON.stringify(hero)); // convert object to JSON string and display in alert dialog
+    // create a home city property based on the input field's value
+    hero.city = form.city.value;
+
+    // create a home city property based on the input field's value
+    hero.origin = form.origin.value;
+
+    ///////////////////////////////////////////////////////////////
+    /////////////////////// FORM VALIDATION ///////////////////////
+    ///////////////////////////////////////////////////////////////
+    form.addEventListener('submit',validate,false);
+    function validate(event) {
+        const firstLetter = form.heroName.value[0];
+        if (firstLetter.toUpperCase() === 'X') {
+            event.preventDefault();
+            alert('Your name is not allowed to start with X!');
+        }
+    }
+
+    // convert object to JSON string and display in alert dialog
+    alert(JSON.stringify(hero));
     return hero;
 }
