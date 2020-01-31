@@ -40,19 +40,38 @@ function makeHero(event) {
     // create a home city property based on the input field's value
     hero.origin = form.origin.value;
 
-    ///////////////////////////////////////////////////////////////
-    /////////////////////// FORM VALIDATION ///////////////////////
-    ///////////////////////////////////////////////////////////////
-    form.addEventListener('keyup',validate,false);
-    function validate(event) {
-        const firstLetter = form.heroName.value[0];
-        if (firstLetter.toUpperCase() === 'X') {
-            event.preventDefault();
-            alert('Your name is not allowed to start with X!');
-        }
-    }
-
     // convert object to JSON string and display in alert dialog
     console.log(JSON.stringify(hero));
     return hero;
-}
+};
+
+///////////////////////////////////////////////////////////////
+/////////////////////// FORM VALIDATION ///////////////////////
+///////////////////////////////////////////////////////////////
+
+// form.addEventListener('keyup',validate,false);
+
+// function validate(event) {
+//     const firstLetter = form.heroName.value[0];
+//     if (firstLetter.toUpperCase() === 'X') {
+//         event.preventDefault();
+//         alert('Your name is not allowed to start with X!');
+//     }
+// };
+
+form.addEventListener('keyup',validateInline,false);
+
+const label = form.querySelector('label');
+const error = document.createElement('div');
+error.classList.add('error');
+error.textContent = '! Your name is not allowed to start with X.';
+label.append(error);
+
+function validateInline() {
+    const heroName = this.value.toUpperCase();
+    if(heroName.startsWith('X')){
+    error.style.display = 'block';
+    } else {
+    error.style.display = 'none';
+    }
+};
