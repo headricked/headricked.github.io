@@ -1,3 +1,9 @@
 div.container {
     display: inline-block;
 }
+
+div.container > div {
+    margin: 10px;
+    background-color: #00875d;
+    color: #fff;
+}
