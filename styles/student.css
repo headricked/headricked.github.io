@@ -1,5 +1,6 @@
 body {
-    color: #333;
+    color: #ccc;
+    background-color: #333;
 }
 
 table {
@@ -7,12 +8,12 @@ table {
 }
 
 table th, table td {
-    border: 1px solid #333;
+    border: 1px solid #ccc;
     padding: 10px;
 }
 
 table th {
-    background-color: #333;
-    color: #ccc;
+    background-color: #ccc;
+    color: #333;
 }
 
