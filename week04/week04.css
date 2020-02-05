@@ -17,6 +17,6 @@ div.container > div > a:hover {
     color: #aaa;
 }
 
-div.container > div > a:active, a:visited {
+div.container > div > a {
     color: #333;
 }
