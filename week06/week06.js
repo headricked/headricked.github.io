@@ -14,7 +14,7 @@ document.querySelector('#btn-add-student').addEventListener('click', addStudent,
 // ADD STUDENT
 function addStudent() {
     // GET VALUES OF FORM FIELDS AND SAVE INTO NEW STUDENT OBJECT
-    const newStudent = new Student(students) (
+    const newStudent = new Student(
         document.getElementById('firstName').value,
         document.getElementById('lastName').value,
         document.getElementById('iNumber').value
@@ -27,7 +27,7 @@ function addStudent() {
     saveStudent(students);
 
     // POPULATE THE TABLE
-    loadStudents();
+    loadStudent();
 
     // CLEAR FORM FIELDS
     clearFields();
@@ -36,9 +36,9 @@ function addStudent() {
 
 // CLEAR FORM FIELDS FOLLOWING SUCCESSFUL SUBMISSION
 function clearFields() {
-    document.querySelector('firstName').value = '';
-    document.querySelector('lastName').value = '';
-    document.querySelector('iNumber').value = '';
+    document.querySelector('#firstName').value = '';
+    document.querySelector('#lastName').value = '';
+    document.querySelector('#iNumber').value = '';
 }
 
 // CLEAR THE TABLE OF DATA
@@ -50,19 +50,17 @@ function clearStudents() {
 }
 
 // LOAD STUDENT INTO HTML TABLE
-function loadStudents() {
+function loadStudent() {
     clearStudents();
 
     students.forEach(
         (student) => {
             document.querySelector('tbody').innerHTML +=
-            `
-                <tr>
-                    <td>${ student.firstName }</td>
-                    <td>${ student.lastName }</td>
-                    <td>${ student.iNumber }</td>
-                </tr>
-            `;
+            `<tr>
+                <td>${ student.firstName }</td>
+                <td>${ student.lastName }</td>
+                <td>${ student.iNumber }</td>
+            </tr>`;
         }
     );
 }
