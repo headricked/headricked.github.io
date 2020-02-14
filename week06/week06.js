@@ -2,6 +2,7 @@ import { Student } from './student.js';
 
 let students = [];
 
+// DESERIALIZE STRING INTO ARRAY ELEMENTS
 if (localStorage.getItem('students')) {
     students = JSON.parse(localStorage.getItem('students'));
 }
@@ -49,23 +50,69 @@ function clearStudents() {
     }
 }
 
+
+function deleteStudent(student) {
+    console.log(student);
+
+    let pos = students.indexOf(student);
+    if (pos < 0) {
+        return;
+    }
+
+    students.splice(pos, 1);
+
+    // SAVE TO LOCAL STORAGE
+    saveStudent(students);
+
+    // POPULATE THE TABLE
+    loadStudent();
+    
+}
+
+
 // LOAD STUDENT INTO HTML TABLE
 function loadStudent() {
     clearStudents();
 
     students.forEach(
         (student) => {
-            document.querySelector('tbody').innerHTML +=
-            `<tr>
-                <td>${ student.firstName }</td>
-                <td>${ student.lastName }</td>
-                <td>${ student.iNumber }</td>
-            </tr>`;
+
+            let tr = document.createElement('tr');
+            let tdFirstName = document.createElement('td');
+            let tdLastName = document.createElement('td');
+            let tdINumber = document.createElement('td');
+            let tdEdit = document.createElement('td');
+
+            tdFirstName.textContent = student.firstName;
+            tdLastName.textContent = student.lastName;
+            tdINumber.textContent = student.iNumber;
+
+            let aDelete = document.createElement('a');
+            aDelete.setAttribute('href', '#');
+            aDelete.addEventListener('click', deleteStudent.bind(null, student), false);
+            aDelete.textContent = 'Delete';
+
+
+            tdEdit.appendChild(aDelete);
+
+            tr.appendChild(tdFirstName);
+            tr.appendChild(tdLastName);
+            tr.appendChild(tdINumber);
+            tr.appendChild(tdEdit);
+
+            document.querySelector('tbody').appendChild(tr);
+
+            // document.querySelector('tbody').innerHTML +=
+            // `<tr>
+            //     <td>${ student.firstName }</td>
+            //     <td>${ student.lastName }</td>
+            //     <td>${ student.iNumber }</td>
+            // </tr>`;
         }
     );
 }
 
-// SAVE STUDENT
+// SAVE STUDENTS INTO JSON STRING
 function saveStudent(students) {
     localStorage.setItem('students', JSON.stringify(students));
 }
