@@ -1,0 +1,8 @@
+div {
+    margin: 10px;
+}
+
+label {
+    display: inline-block;
+    min-width: 100px;
+}
