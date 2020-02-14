@@ -5,6 +5,8 @@ let students = [];
 // DESERIALIZE STRING INTO ARRAY ELEMENTS
 if (localStorage.getItem('students')) {
     students = JSON.parse(localStorage.getItem('students'));
+} else {
+    loadStudent();
 }
 
 // ATTACH EVENTLISTENER TO ADD STUDENT BUTTON
