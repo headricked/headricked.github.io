@@ -10,8 +10,13 @@ if (localStorage.getItem('students')) {
 
 // ATTACH EVENTLISTENER TO ADD STUDENT BUTTON
 document.querySelector('#btn-add-student').addEventListener('click', addStudent, false);
+document.querySelector('#btn-add-student').addEventListener('click', autoFocus, false);
 
 // window.addStudent = addStudent;
+
+// FOCUS TEXT FIELD ON ADD STUDENT BUTTON CLICK
+document.getElementById('firstName').focus();
+
 
 // ADD STUDENT
 function addStudent() {
