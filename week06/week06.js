@@ -15,7 +15,9 @@ document.querySelector('#btn-add-student').addEventListener('click', autoFocus, 
 // window.addStudent = addStudent;
 
 // FOCUS TEXT FIELD ON ADD STUDENT BUTTON CLICK
-document.getElementById('firstName').focus();
+function autoFocus() {
+    document.getElementById('firstName').focus();
+}
 
 
 // ADD STUDENT
