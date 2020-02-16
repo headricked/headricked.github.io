@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <script type="text/javascript">
+            function ChangeTextDecoration () {
+                var anchor = document.getElementById ("myAnchor");
+                var checkboxes = document.getElementsByName ("checkboxs");
+                var decorValue = "";
+
+                // Checks all checkbox state
+                for (var i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i].checked) {
+                    decorValue += checkboxes[i].value + " ";
+                    }
+                }
+
+                // If none is checked all other checked out
+                var noneCh = document.getElementsByName("nonecheck");
+                if (noneCh[0].checked) {
+                    for (var i = 0; i < checkboxes.length; i++) {
+                        checkboxes[i].checked = false;
+                    }
+                    decorValue = "none";
+                }
+                anchor.style.textDecoration = decorValue;
+            }
+        </script>
+    </head>
+    <body>
+        <a id="myAnchor">Text decoration sample</a>
+
+        <br /><br />
+        Change text-decoration value:
+        <br />
+        <input type="checkbox" name="checkboxs" value="line-through" onclick="ChangeTextDecoration ();"/>line-through<br />
+
+        <input type="checkbox" name="nonecheck" onclick="ChangeTextDecoration ();" />none
+    </body>
+</html>
