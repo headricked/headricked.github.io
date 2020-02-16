@@ -6,8 +6,12 @@
     <title>To Do</title>
     <link rel="stylesheet" href="toDo.css">
 </head>
+
+<header>
+    <h1>To Do</h1>
+</header>
+
 <body>
-    <h1 id="hello" onclick="ChangeTextDecoration()">To Do</h1>
     <table>
         <tbody></tbody>
     </table>
@@ -17,15 +21,24 @@
         <input type="button" id="btn-filter-all" value="All">
         <input type="button" id="btn-filter-active" value="Active">
         <input type="button" id="btn-filter-completed" value="Completed">
+
+        <form>
+            <div>
+                <input type="text" name="content" id="content" placeholder="Enter a task">
+                <input type="button" id="btn-add-todo" value="+">
+                <!-- <input type="button" id="btn-add-student" onclick="addStudent()" value="Add Student"> -->
+            </div>
+        </form>
+    
     </footer>
 
-    <form>
+    <!-- <form>
         <div>
             <input type="text" name="content" id="content" placeholder="Enter a task">
             <input type="button" id="btn-add-todo" value="+">
-            <!-- <input type="button" id="btn-add-student" onclick="addStudent()" value="Add Student"> -->
+            <input type="button" id="btn-add-student" onclick="addStudent()" value="Add Student">
         </div>
-    </form>
+    </form> -->
 
 
     <script src="toDo.js" type="module"></script>

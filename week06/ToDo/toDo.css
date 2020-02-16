@@ -1,5 +1,32 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* body {
+    margin: 50px 0px;
+} */
+
 div {
     margin: 10px;
+}
+
+footer {
+    width: 100%;
+    background-color: #555;
+    color: white;
+    text-align: center;
+    padding: 30px;
+    margin-top: 30px;
+}
+
+header {
+    margin-bottom: 30px;
+    width: 100%;
+    padding: 30px;
+    color: white;
+    background-color: #555;
 }
 
 label {
@@ -23,7 +50,7 @@ tr:nth-child(odd) {
 }
 
 button {
-    background-color: rgb(255, 43, 43);
+    background-color: red;
     border-radius: 50%;
     border: none;
     padding: 3px 6px;
@@ -31,5 +58,8 @@ button {
     cursor: pointer;
     color: #ffffff;
     float: right;
-    /* margin-left: 20px; */
+}
+
+button:hover {
+    background-color: pink;
 }
