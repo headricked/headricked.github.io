@@ -147,17 +147,19 @@ function loadToDo() {
         
             // create elements
             let tr = document.createElement('tr');
+            let tdCheck = document.createElement('td');
             let tdCheckBox = document.createElement('input');
             let tdContent = document.createElement('td');
             let tdEdit = document.createElement('td');
             let aDelete = document.createElement('button');
 
             // Assigning the attributes to new checkbox element
+            tdCheck.style.width = "1px";
             tdCheckBox.type  = "checkbox"; 
             tdCheckBox.name  = "toDoItem"; 
             // tdCheckBox.value = "value"; 
             // tdCheckBox.id = pos; // assign unique position to checkbox id attribute
-            tdCheckBox.id = pos; // assign unique position to checkbox id attribute
+            // tdCheckBox.id = pos; // assign unique position to checkbox id attribute
 
             tdContent.textContent = toDoItem.content;
 
@@ -169,7 +171,8 @@ function loadToDo() {
 
 
 
-            tr.appendChild(tdCheckBox);
+            tr.appendChild(tdCheck);
+            tdCheck.appendChild(tdCheckBox);
             tr.appendChild(tdContent);
             tr.appendChild(tdEdit);
             tdEdit.appendChild(aDelete);
