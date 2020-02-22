@@ -30,12 +30,10 @@ for (var i = 0; i < checkboxElems.length; i++) {
 function checkBox() {
     if(this.checked) {
         console.log('item checked');
-        // strike through the content
-        // document.getElementById("item").style.textDecoration = "line-through";
+        // strike through the content of elements of classname 'item'
         document.getElementsByClassName("item").style.textDecoration = "line-through";
     } else {
         console.log('item un-checked');
-        // document.getElementById("item").style.textDecoration = "none";
         document.getElementsByClassName("item").style.textDecoration = "none";
     }
 }
@@ -58,12 +56,10 @@ function filterCompleted() {
     console.log('filterCompleted()');
 }
 
-
 // FOCUS TEXT FIELD ON ADD TO DO BUTTON CLICK
 function autoFocus() {
     document.getElementById('content').focus();
 }
-
 
 // ADD TODO
 function addToDo() {
@@ -98,7 +94,6 @@ function addToDo() {
 
 
 }
-
 
 // CLEAR FORM FIELD FOLLOWING SUCCESSFUL SUBMISSION
 function clearFields() {
