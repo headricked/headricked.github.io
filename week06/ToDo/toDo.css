@@ -63,11 +63,3 @@ button {
 button:hover {
     background-color: pink;
 }
-
-.underline {
-    text-decoration: underline;
-}
-
-.item {
-    background-color: purple;
-}
