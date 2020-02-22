@@ -1,3 +1,6 @@
+import Comments from './comments.js';
+
+
 // Example of using Classes and modules to organize the code needed to render our list of hikes. Not using MVC here.
 
 //create an array of hikes
@@ -98,6 +101,30 @@ function renderHikeList(parent, hikes) {
     parent.appendChild(renderOneHikeLight(hike));
   });
 }
+
+
+document.addComment = addComment;
+
+
+// event listener for add comment button
+// document.querySelector('#btn-add-student').addEventListener('click', addStudent, false);
+document.getElementById('addComment').addEventListener('click', addComment, false);
+
+// comments array
+let commentsArray = [];
+
+// ADD COMMENT
+function addComment() {
+  // let comment;
+  // let comment = document.getElementById('comment');
+  // alert('comment: ' + comment);
+
+  alert('Hello');
+
+}
+
+
+
 function renderOneHikeLight(hike) {
   const item = document.createElement('li');
   item.classList.add('light');
@@ -114,6 +141,12 @@ function renderOneHikeLight(hike) {
             <h3>Difficulty</h3>
             <p>${hike.difficulty}</p>
         </div>
+        <div id="comments">
+          <h3>Comments</h3>
+          <p>Comment</p>
+        </div>
+        <input id="comment" type="text">
+        <input type="button" id="addComment" value="Add Comment">
 </div>`;
 
   return item;
@@ -144,3 +177,7 @@ function renderOneHikeFull(hike) {
     `;
   return item;
 }
+
+
+
+
