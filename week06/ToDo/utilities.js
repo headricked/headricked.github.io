@@ -30,12 +30,12 @@ for (var i = 0; i < checkboxElems.length; i++) {
 function checkBox() {
     if(this.checked) {
         console.log('item checked');
-    // document.getElementById("myP").style.textDecoration = "line-through";
-} else {
+        document.getElementById("item").style.textDecoration = "line-through";
+    } else {
         console.log('item un-checked');
+        document.getElementById("item").style.textDecoration = "line-through";
     }
     // strike through the content
-    // document.getElementById("myP").style.textDecoration = "line-through";
 }
 
 // APPLY FILTER TO DISPLAY ALL
@@ -156,12 +156,15 @@ function loadToDo() {
             // Assigning the attributes to new checkbox element
             tdCheck.style.width = "1px";
             tdCheckBox.type  = "checkbox"; 
-            tdCheckBox.name  = "toDoItem"; 
+            tdCheckBox.name  = "toDoCheckbox"; 
             // tdCheckBox.value = "value"; 
             // tdCheckBox.id = pos; // assign unique position to checkbox id attribute
             // tdCheckBox.id = pos; // assign unique position to checkbox id attribute
 
+            // assigning the attributes to the new item
+            tdContent.name = "item";
             tdContent.textContent = toDoItem.content;
+
 
             // assigning attributes to delete link
             aDelete.setAttribute('href', '#');
