@@ -31,10 +31,12 @@ function checkBox() {
     if(this.checked) {
         console.log('item checked');
         // strike through the content
-        document.getElementById("item").style.textDecoration = "line-through";
+        // document.getElementById("item").style.textDecoration = "line-through";
+        document.getElementsByClassName("item").style.textDecoration = "line-through";
     } else {
         console.log('item un-checked');
-        document.getElementById("item").style.textDecoration = "none";
+        // document.getElementById("item").style.textDecoration = "none";
+        document.getElementsByClassName("item").style.textDecoration = "none";
     }
 }
 
@@ -157,28 +159,22 @@ function loadToDo() {
             tdCheck.style.width = "1px";
             tdCheckBox.type  = "checkbox";
             tdCheckBox.name  = "toDoCheckbox";
-            // tdCheckBox.value = "value"; 
-            // tdCheckBox.id = pos; // assign unique position to checkbox id attribute
-            // tdCheckBox.id = pos; // assign unique position to checkbox id attribute
 
             // assigning the attributes to the new item
-            tdContent.name = "item";
+            tdContent.className = "item";
             tdContent.textContent = toDoItem.content;
-
 
             // assigning attributes to delete link
             aDelete.setAttribute('href', '#');
             aDelete.addEventListener('click', deleteToDo.bind(null, toDoItem), false);
             aDelete.textContent = 'X';
-            // aDelete.style.float = 'right'
 
-
-
-            tr.appendChild(tdCheck);
-            tdCheck.appendChild(tdCheckBox);
-            tr.appendChild(tdContent);
-            tr.appendChild(tdEdit);
-            tdEdit.appendChild(aDelete);
+            // assemble the table structure and order of table elements
+            tr.appendChild(tdCheck); // 1
+            tdCheck.appendChild(tdCheckBox); // 2
+            tr.appendChild(tdContent); // 3
+            tr.appendChild(tdEdit); // 4
+            tdEdit.appendChild(aDelete); // 5
 
             document.querySelector('tbody').appendChild(tr);
 
