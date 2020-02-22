@@ -8,6 +8,21 @@
     margin: 50px 0px;
 } */
 
+button {
+    background-color: red;
+    border-radius: 50%;
+    border: none;
+    padding: 3px 6px;
+    text-decoration: none;
+    cursor: pointer;
+    color: #ffffff;
+    float: right;
+}
+
+button:hover {
+    background-color: pink;
+}
+
 div {
     margin: 10px;
 }
@@ -47,19 +62,4 @@ td {
 
 tr:nth-child(odd) {
     background-color: #eeeeee;
-}
-
-button {
-    background-color: red;
-    border-radius: 50%;
-    border: none;
-    padding: 3px 6px;
-    text-decoration: none;
-    cursor: pointer;
-    color: #ffffff;
-    float: right;
-}
-
-button:hover {
-    background-color: pink;
 }
