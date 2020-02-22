@@ -16,7 +16,7 @@ document.querySelector('#btn-add-todo').addEventListener('click', autoFocus, fal
 document.querySelector('#btn-filter-all').addEventListener('click', filterAll, false);
 document.querySelector('#btn-filter-active').addEventListener('click', filterActive, false);
 document.querySelector('#btn-filter-completed').addEventListener('click', filterCompleted, false);
-var checkboxElems = document.querySelectorAll("input[name='toDoItem']");
+var checkboxElems = document.querySelectorAll("input[name='toDoCheckbox']");
 console.log(checkboxElems);
 
 
@@ -30,12 +30,12 @@ for (var i = 0; i < checkboxElems.length; i++) {
 function checkBox() {
     if(this.checked) {
         console.log('item checked');
+        // strike through the content
         document.getElementById("item").style.textDecoration = "line-through";
     } else {
         console.log('item un-checked');
-        document.getElementById("item").style.textDecoration = "line-through";
+        document.getElementById("item").style.textDecoration = "none";
     }
-    // strike through the content
 }
 
 // APPLY FILTER TO DISPLAY ALL
