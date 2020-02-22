@@ -155,8 +155,8 @@ function loadToDo() {
 
             // Assigning the attributes to new checkbox element
             tdCheck.style.width = "1px";
-            tdCheckBox.type  = "checkbox"; 
-            tdCheckBox.name  = "toDoCheckbox"; 
+            tdCheckBox.type  = "checkbox";
+            tdCheckBox.name  = "toDoCheckbox";
             // tdCheckBox.value = "value"; 
             // tdCheckBox.id = pos; // assign unique position to checkbox id attribute
             // tdCheckBox.id = pos; // assign unique position to checkbox id attribute
