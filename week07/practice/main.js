@@ -29,10 +29,11 @@ textButton.addEventListener('click', () => {
     }
         throw Error(response.statusText);
     })
-    .then( response => response.json() )
+    .then( response => response.text() )
     .then( text => outputDiv.innerText = text )
     .catch( error => console.log('There was an error:', error))
 },false);
+
 
 apiButton.addEventListener('click', () => {
     fetch(apiURL)
