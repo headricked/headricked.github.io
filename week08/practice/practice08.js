@@ -6,12 +6,38 @@ context.fillRect(10, 10, 100, 100);
 context.strokeRect(10, 10, 100, 100);
 
 function drawPattern() {
-    var img = new Image();
+    var canvas = document.getElementById("demo2");
+    var context = canvas.getContext("2d");
+    context.strokeStyle = "red";
+    var img = new Image(); 
     img.src = "HeadrickDavid.jpg";
-    img.onload = function() {
-    var pattern = context.createPattern(img, "repeat"); 
-    context.fillStyle = pattern;                        
-    context.fillRect(10, 10, 100, 100);                  
-    context.strokeRect(10, 10, 100, 100);             
-    };
 }
+
+function drawGradient() {
+    var canvas = document.getElementById("demo3");
+    var context = canvas.getContext("2d");
+    context.strokeStyle = "red";
+    var gradient = context.createLinearGradient(0, 0, 0, 200);
+    var gradient = context.createLinearGradient(0, 0, 0, 200);
+    gradient.addColorStop(0, "blue"); 
+    gradient.addColorStop(1, "white"); 
+    context.fillStyle = gradient; 
+    context.fillRect(10, 10, 100, 100); 
+    context.strokeRect(10, 10, 100, 100);
+}
+
+window.addEventListener("load", drawImageToCanvas, false);
+
+function drawImageToCanvas() {
+    var canvas = document.getElementById("demo6");
+    var context = canvas.getContext("2d");
+    var image = document.getElementById("myImageElem");
+}
+
+function drawImageToCanvas() {
+    var canvas = document.getElementById("demo6");
+    var context = canvas.getContext("2d");
+    var image = document.getElementById("myImageElem");
+    context.drawImage(image, 36, 34); 
+}
+
