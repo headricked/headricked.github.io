@@ -27,14 +27,33 @@ for (var i = 0; i < checkboxElems.length; i++) {
 
 
 // MARK TO DO ITEM COMPLETED
-function checkBox() {
+function checkBox(toDoList) {
     if(this.checked) {
         console.log('item checked');
         // strike through the content of elements of classname 'item'
-        document.getElementsByClassName("item").style.textDecoration = "line-through";
+        this.parentElement.nextSibling.style.textDecoration = "line-through";
+        toDoList.completed = true;
+
+        console.log(toDoList.completed);
+
+        // let pos = toDoList.indexOf(toDoItem);
+        // if (pos < 0) {
+        //     return;
+        // }
+    
+        // toDoList.completed = true; 
+    
+        // SAVE TO LOCAL STORAGE
+        // saveToDo(toDoList);
+    
+        // POPULATE THE TABLE
+        // loadToDo();
+    
+
     } else {
         console.log('item un-checked');
-        document.getElementsByClassName("item").style.textDecoration = "none";
+        this.parentElement.nextSibling.style.textDecoration = "none";
+        // this.completed = false;
     }
 }
 
