@@ -33,10 +33,8 @@ for (var i = 0; i < checkboxElems.length; i++) {
 function checkBox() {
 
     let toDoItemId = this.value;
-    // console.log(toDoList);
     let pos = toDoList.findIndex(t => t.id == toDoItemId); // coerce toDoItemId to string with ==
 
-    // console.log(pos);
 
     if (pos < 0) {
         return;
@@ -44,13 +42,6 @@ function checkBox() {
 
     toDoList[pos].completed = true;
 
-    // console.log(toDoList[pos]);
-
-
-    // toDoList.splice(pos, 1)
-
-    // console.log(this.value);
-    // return;
 
     if(this.checked) {
         console.log('item checked');
@@ -58,33 +49,6 @@ function checkBox() {
         this.parentElement.nextSibling.style.textDecoration = "line-through";
 
         toDoList.forEach(toDoItem => console.log(toDoItem));
-
-        // toDoList.forEach(
-        //     (toDoItem) => {
-        //         // let pos = toDoList.indexOf(toDoItem);
-        //     }
-        // );
-
-        // toDoList.forEach(
-        //     (toDoItem) => {
-    
-        //         // find position of each to do item
-        //         let pos = toDoList.indexOf(toDoItem);
-        //         if (pos < 0) {
-        //             return;
-        //         }
-
-        //         console.log(toDoList[pos].completed);
-
-        //     }
-        // );
-
-        // let pos = toDoList.indexOf(toDoItem);
-        // if (pos < 0) {
-        //     return;
-        // }
-    
-        // toDoList.completed = true; 
     
         // SAVE TO LOCAL STORAGE
         saveToDo(toDoList);
