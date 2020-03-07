@@ -40,11 +40,12 @@ function checkBox() {
         return;
     }
 
-    toDoList[pos].completed = true;
+    // toDoList[pos].completed = true;
 
 
     if(this.checked) {
         console.log('item checked');
+        toDoList[pos].completed = true;
         // strike through the content of elements of classname 'item'
         this.parentElement.nextSibling.style.textDecoration = "line-through";
 
@@ -53,14 +54,13 @@ function checkBox() {
         // SAVE TO LOCAL STORAGE
         saveToDo(toDoList);
     
-        // POPULATE THE TABLE
-        // loadToDo(); // you probably don't want this because it clears out the checked checkboxes
-    
-
     } else {
         console.log('item un-checked');
+        toDoList[pos].completed = false;
         this.parentElement.nextSibling.style.textDecoration = "none";
-        // this.completed = false;
+
+        // SAVE TO LOCAL STORAGE
+        saveToDo(toDoList);
     }
 }
 
