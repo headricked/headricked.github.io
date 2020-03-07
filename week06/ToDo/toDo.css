@@ -28,7 +28,6 @@ div {
 }
 
 footer {
-    width: 100%;
     background-color: #555;
     color: white;
     text-align: center;
@@ -38,7 +37,6 @@ footer {
 
 header {
     margin-bottom: 30px;
-    width: 100%;
     padding: 30px;
     color: white;
     background-color: #555;

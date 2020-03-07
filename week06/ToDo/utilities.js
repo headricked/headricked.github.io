@@ -8,6 +8,9 @@ if (localStorage.getItem('toDoList')) {
     loadToDo();
 }
 
+// ATTACH EVENTLISTENER TO PAGE LOAD
+window.addEventListener('load', renderCompleted, false);
+
 // ATTACH EVENTLISTENER TO ADD STUDENT BUTTON
 document.querySelector('#btn-add-todo').addEventListener('click', addToDo, false);
 document.querySelector('#btn-add-todo').addEventListener('click', autoFocus, false);
@@ -17,24 +20,64 @@ document.querySelector('#btn-filter-all').addEventListener('click', filterAll, f
 document.querySelector('#btn-filter-active').addEventListener('click', filterActive, false);
 document.querySelector('#btn-filter-completed').addEventListener('click', filterCompleted, false);
 var checkboxElems = document.querySelectorAll("input[name='toDoCheckbox']");
-console.log(checkboxElems);
+// console.log(checkboxElems);
 
 
 for (var i = 0; i < checkboxElems.length; i++) {
     checkboxElems[i].addEventListener("click", checkBox, false);
-    console.log(checkboxElems[i]);
+    // console.log(checkboxElems[i]);
 }
 
 
 // MARK TO DO ITEM COMPLETED
-function checkBox(toDoList) {
+function checkBox() {
+
+    let toDoItemId = this.value;
+    // console.log(toDoList);
+    let pos = toDoList.findIndex(t => t.id == toDoItemId); // coerce toDoItemId to string with ==
+
+    // console.log(pos);
+
+    if (pos < 0) {
+        return;
+    }
+
+    toDoList[pos].completed = true;
+
+    // console.log(toDoList[pos]);
+
+
+    // toDoList.splice(pos, 1)
+
+    // console.log(this.value);
+    // return;
+
     if(this.checked) {
         console.log('item checked');
         // strike through the content of elements of classname 'item'
         this.parentElement.nextSibling.style.textDecoration = "line-through";
-        toDoList.completed = true;
 
-        console.log(toDoList.completed);
+        toDoList.forEach(toDoItem => console.log(toDoItem));
+
+        // toDoList.forEach(
+        //     (toDoItem) => {
+        //         // let pos = toDoList.indexOf(toDoItem);
+        //     }
+        // );
+
+        // toDoList.forEach(
+        //     (toDoItem) => {
+    
+        //         // find position of each to do item
+        //         let pos = toDoList.indexOf(toDoItem);
+        //         if (pos < 0) {
+        //             return;
+        //         }
+
+        //         console.log(toDoList[pos].completed);
+
+        //     }
+        // );
 
         // let pos = toDoList.indexOf(toDoItem);
         // if (pos < 0) {
@@ -44,10 +87,10 @@ function checkBox(toDoList) {
         // toDoList.completed = true; 
     
         // SAVE TO LOCAL STORAGE
-        // saveToDo(toDoList);
+        saveToDo(toDoList);
     
         // POPULATE THE TABLE
-        // loadToDo();
+        // loadToDo(); // you probably don't want this because it clears out the checked checkboxes
     
 
     } else {
@@ -55,6 +98,24 @@ function checkBox(toDoList) {
         this.parentElement.nextSibling.style.textDecoration = "none";
         // this.completed = false;
     }
+}
+
+// RENDER COMPLETED ITEMS WITH STRIKETHROUGH
+function renderCompleted() {
+    // do stuff
+    let toDoItems = JSON.parse(localStorage.toDoList);
+
+    for (let i = 0; i < toDoItems.length; i++) {
+        // console.log(toDoItems[i].completed);
+        if (toDoItems[i].completed === true) {
+            // console.log(`this is completed: ${toDoItems[i].content}`);
+            // console.log(this.document.innerHTML);
+            checkboxElems[i].checked = true;
+            // console.log(checkboxElems[i]);
+            checkboxElems[i].parentElement.nextSibling.style.textDecoration = "line-through";
+        }
+    }
+
 }
 
 // APPLY FILTER TO DISPLAY ALL
@@ -91,7 +152,7 @@ function addToDo() {
     let checked = false;
 
     // GET VALUES OF FORM FIELD AND SAVE INTO NEW TODO OBJECT
-    const newToDo = new toDo (
+    const newToDo = new toDo(
         timestamp,
         document.getElementById('content').value,
         checked
@@ -144,7 +205,7 @@ function deleteToDo(toDoItem) {
 
     // POPULATE THE TABLE
     loadToDo();
-    
+
 }
 
 
@@ -160,6 +221,8 @@ function loadToDo() {
             if (pos < 0) {
                 return;
             }
+
+            // console.log(toDoList[pos].completed);
         
             // create elements
             let tr = document.createElement('tr');
@@ -173,10 +236,19 @@ function loadToDo() {
             tdCheck.style.width = "1px";
             tdCheckBox.type  = "checkbox";
             tdCheckBox.name  = "toDoCheckbox";
+            tdCheckBox.value  = toDoItem.id;
+            tdCheckBox.checked = toDoItem.completed;
+
 
             // assigning the attributes to the new item
             tdContent.className = "item";
             tdContent.textContent = toDoItem.content;
+            if (toDoItem.completed) {
+                // console.log(tdContent.textContent);
+                tdContent.style.textDecoration = "line-through";
+                // tdContent.textContent.setAttribute("style", "background-color: red;");
+                // tdContent.setAttribute("style", "background-color: red;");
+            }
 
             // assigning attributes to delete link
             aDelete.setAttribute('href', '#');
@@ -199,4 +271,16 @@ function loadToDo() {
 // SAVE toDoList INTO JSON STRING
 function saveToDo(toDoList) {
     localStorage.setItem('toDoList', JSON.stringify(toDoList));
+}
+
+// UPDATE toDoList IN LOCAL STORAGE
+function completeToDo(toDoList, completed) {
+    let toDoItem = JSON.parse(localStorage.toDoList);
+
+    for (let i = 0; i < toDoItem.length; i++) {
+        if (inputName === toDoItem[i].name) {
+            toDoItem[i].age += 2
+            localStorage.setItem("toDoList", JSON.stringify(toDoItem[i].age));
+        }
+    }
 }
