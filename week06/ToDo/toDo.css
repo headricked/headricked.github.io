@@ -23,6 +23,11 @@ button:hover {
     background-color: pink;
 }
 
+.completed {
+    text-decoration: line-through;
+    color: #777;
+}
+
 div {
     margin: 10px;
 }

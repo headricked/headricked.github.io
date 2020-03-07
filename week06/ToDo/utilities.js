@@ -47,7 +47,8 @@ function checkBox() {
         console.log('item checked');
         toDoList[pos].completed = true;
         // strike through the content of elements of classname 'item'
-        this.parentElement.nextSibling.style.textDecoration = "line-through";
+        // this.parentElement.nextSibling.style.textDecoration = "line-through";
+        this.parentElement.nextSibling.classList.add('completed');
 
         toDoList.forEach(toDoItem => console.log(toDoItem));
     
@@ -57,7 +58,9 @@ function checkBox() {
     } else {
         console.log('item un-checked');
         toDoList[pos].completed = false;
-        this.parentElement.nextSibling.style.textDecoration = "none";
+        // this.parentElement.nextSibling.style.textDecoration = "none";
+        this.parentElement.nextSibling.classList.remove('completed');
+
 
         // SAVE TO LOCAL STORAGE
         saveToDo(toDoList);
@@ -76,7 +79,7 @@ function renderCompleted() {
             // console.log(this.document.innerHTML);
             checkboxElems[i].checked = true;
             // console.log(checkboxElems[i]);
-            checkboxElems[i].parentElement.nextSibling.style.textDecoration = "line-through";
+            checkboxElems[i].parentElement.nextSibling.classList.add('completed');
         }
     }
 
@@ -209,9 +212,12 @@ function loadToDo() {
             tdContent.textContent = toDoItem.content;
             if (toDoItem.completed) {
                 // console.log(tdContent.textContent);
-                tdContent.style.textDecoration = "line-through";
+                // tdContent.style.textDecoration = "line-through";
+                tdContent.classList.add('completed');
                 // tdContent.textContent.setAttribute("style", "background-color: red;");
                 // tdContent.setAttribute("style", "background-color: red;");
+            } else {
+                tdContent.classList.remove('completed');
             }
 
             // assigning attributes to delete link
