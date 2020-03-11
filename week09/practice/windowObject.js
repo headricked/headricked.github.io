@@ -14,6 +14,11 @@ function showScreenDimensions() {
 }
 
 function makeCookie() {
+    let firstName = window.prompt('Please enter your first name:');
+    let lastName = window.prompt('Please endter your last name:');
+
+    document.cookie = `firstName=${firstName}`;
+    document.cookie = `lastName=${lastName}`;
     
 }
 
@@ -23,6 +28,4 @@ const popup = window.open('https://www.churchofjesuschrist.org/?lang=eng','Churc
 
 
 
-document.cookie = 'name=Batman'
-document.cookie = 'city=Gotham'
 
