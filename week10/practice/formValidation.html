@@ -58,6 +58,21 @@
         </p>
     </form>
 
+    <form novalidate>
+        <fieldset>
+            <legend>Do you have a driver's license?<abbr title="This field is mandatory" aria-label="required">*</abbr>
+            </legend>
+            <p>
+                <label for="mail">
+                    <span>Please enter an email address:</span>
+                    <input type="email" id="mail" name="mail" required minlength="8">
+                    <span class="error" aria-live="polite"></span>
+                </label>
+            </p>
+            <button>Submit</button>
+        </fieldset>
+    </form>
+
     <script src="formValidation.js"></script>
 
 </body>
