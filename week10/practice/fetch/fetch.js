@@ -25,6 +25,7 @@ fetch(url)
         
         table += '</table>';
 
+        document.getElementById('demo').innerHTML = table;
 
     });
 
