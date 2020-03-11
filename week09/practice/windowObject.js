@@ -5,3 +5,10 @@ const popup = window.open(
     'Church of Jesus Christ of Latter-day Saints',
     'width=400,height=400,resizable=yes'
     );
+
+let screenHeight, screenWidth;
+
+screenHeight = window.screen.height;
+screenWidth = window.screen.width;
+
+alert(`Screen height: ${screenHeight}, Screen width: ${screenWidth}`);
