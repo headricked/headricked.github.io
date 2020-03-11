@@ -12,18 +12,19 @@ fetch(url)
 
 
         let table = '<table>';
+        table += '<tr>';
+        table += '<th>Name</th>';
+        table += '<th>Height</th>';
+        table += '<th>Mass</th>';
+        table += '<th>Hair</th>';
+        table += '<th>Skin</th>';
+        table += '<th>Eyes</th>';
+        table += '<th>Born</th>';
+        table += '<th>Gender</th>';
+        table += '</tr>';
 
         data.results.forEach(result => {
             table += '<tr>';
-            table += '<th>Name</th>';
-            table += '<th>Height</th>';
-            table += '<th>Mass</th>';
-            table += '<th>Hair</th>';
-            table += '<th>Skin</th>';
-            table += '<th>Eyes</th>';
-            table += '<th>Born</th>';
-            table += '<th>Gender</th>';
-            table += '</tr><tr>';
             table += '<td class="name">' + result.name + '</td>';
             table += '<td class="hideable">' + result.height + '</td>';
             table += '<td class="hideable">' + result.mass + '</td>';
