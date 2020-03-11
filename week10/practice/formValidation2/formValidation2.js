@@ -58,7 +58,7 @@ addEvent(form, "submit", function () {
 
     if (!test) {
         email.className = "invalid";
-        error.innerHTML = "I expect an e-mail, darling!";
+        error.innerHTML = "Please enter a valid email address";
         error.className = "error active";
 
         // Some legacy browsers do not support the event.preventDefault() method
