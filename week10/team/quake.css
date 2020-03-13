@@ -1,0 +1,12 @@
+li {
+    padding: 5px 0;
+    list-style-type: none;
+}
+
+.title {
+    color: blue;
+}
+
+.date {
+    color: red;
+}
