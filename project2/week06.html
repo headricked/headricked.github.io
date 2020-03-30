@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Milestone Tracker</title>
+    <link rel="stylesheet" href="week06.css">
+</head>
+
+<body>
+    <header></header>
+    <main>
+        <div>
+            <h1>Milestone Tracker</h1>
+            <input type="button" id="btn-modal-add-milestone" value="Add Milestone">
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Milestone</th>
+                    <th>Date</th>
+                    <!-- <th>Age</th> -->
+                    <!-- <th>Location</th> -->
+                    <!-- <th>Notes</th> -->
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+        <!-- <form action="">
+            <div>
+                <label for="milestone">Milestone:</label>
+                <input type="text" name="milestone" id="milestone" placeholder="Milestone" autofocus>
+            </div>
+            <div>
+                <label for="date">Date:</label>
+                <input type="text" name="date" id="date" placeholder="Date">
+            </div>
+            <div>
+                <label for="age">Age:</label>
+                <input type="text" name="age" id="age" placeholder="Age">
+            </div>
+            <div>
+                <label for="location">Location:</label>
+                <input type="text" name="location" id="location" placeholder="Location">
+            </div>
+            <div>
+                <label for="notes">Notes:</label>
+                <input type="text" name="notes" id="notes" placeholder="Notes">
+            </div>
+        </form> -->
+
+
+        <!-- MODAL - ADD MILESTONE -->
+        <!-- <div id="modal-add-milestone" class="modal"> -->
+            <!-- Modal content -->
+            <!-- <div class="modal-content"> -->
+                <!-- <div class="modal-header"> -->
+                    <!-- <span class="close">&times;</span> -->
+                    <!-- <h2>Add a milestone</h2> -->
+                <!-- </div> -->
+                <!-- <div class="modal-body"> -->
+                    <!-- <form action=""> -->
+                        <!-- <div>
+                            <label for="milestone">Milestone:</label>
+                            <input type="text" name="milestone" id="milestone" placeholder="Milestone" autofocus>
+                        </div>
+                        <div>
+                            <label for="date">Date:</label>
+                            <input type="text" name="date" id="date" placeholder="Date">
+                        </div>
+                        <div>
+                            <label for="age">Age:</label>
+                            <input type="text" name="age" id="age" placeholder="Age">
+                        </div>
+                        <div>
+                            <label for="location">Location:</label>
+                            <input type="text" name="location" id="location" placeholder="Location">
+                        </div>
+                        <div>
+                            <label for="notes">Notes:</label>
+                            <input type="text" name="notes" id="notes" placeholder="Notes">
+                        </div> -->
+                    <!-- </form> -->
+                <!-- </div> -->
+                <!-- <div class="modal-footer"> -->
+                    <!-- <input type="button" id="btn-add-milestone" value="Add"> -->
+                <!-- </div> -->
+            <!-- </div> -->
+        <!-- </div> -->
+
+        <!-- The Modal -->
+        <!-- <div id="modal-add-milestone" class="modal"> -->
+            <!-- Modal content -->
+            <!-- <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <h2>Add a milestone</h2>
+                </div>
+                <div class="modal-body">
+                    <form action="" id="testForm"></form>
+                </div>
+                <div class="modal-footer">
+                    <input type="button" id="btn-add-milestone" value="Add">
+                </div>
+            </div>
+        </div> -->
+
+        <!-- <div id="testForm"></div> -->
+
+
+        <table>
+            <tr>
+                <td>
+                    <!-- HTML FORM FOR CRUD OPERATIONS -->
+                    <form action="">
+                        <div>
+                            <label for="milestone">Milestone:</label>
+                            <input type="text" name="milestone" id="milestone" placeholder="Milestone" autofocus>
+                        </div>
+                        <div>
+                            <label for="date">Date:</label>
+                            <input type="text" name="date" id="date" placeholder="Date">
+                        </div>
+                        <div>
+                            <label for="age">Age:</label>
+                            <input type="text" name="age" id="age" placeholder="Age">
+                        </div>
+                        <div>
+                            <label for="location">Location:</label>
+                            <input type="text" name="location" id="location" placeholder="Location">
+                        </div>
+                        <div>
+                            <label for="notes">Notes:</label>
+                            <input type="text" name="notes" id="notes" placeholder="Notes">
+                        </div>
+                        <div class="form-action-buttons">
+                            <input type="submit" value="Submit">
+                        </div>
+                    </form>
+
+                </td>
+                <td>
+                    <!-- TABLE TO LIST ALL RECORDS -->
+                    <table class="list" id="employeeList">
+                        <thead>
+                            <tr>
+                                 <th>Milestone</th>
+                                 <th>Date</th>
+                                 <th>Age</th>
+                                 <th>Location</th>
+                                 <th>Notes</th>
+                                 <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </table>
+
+    </main>
+
+    <script src="week06.js" type="module"></script>
+
+</body>
+
+</html>
