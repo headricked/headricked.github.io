@@ -1,58 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Milestone Tracker</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <table>
-        <tr>
-            <td>
-                <!-- HTML FORM FOR CRUD OPERATIONS -->
-                <form action="" onsubmit="event.preventDefault();onFormSubmit();">
-                    <div>
-                        <label for="">Fullname</label>
-                        <input type="text" name="fullname" id="fullname">
-                    </div>
-                    <div>
-                        <label for="">EMP Code</label>
-                        <input type="text" name="empCode" id="empCode">
-                    </div>
-                    <div>
-                        <label for="">Salary</label>
-                        <input type="text" name="salary" id="salary">
-                    </div>
-                    <div>
-                        <label for="">City</label>
-                        <input type="text" name="city" id="city">
-                    </div>
-                    <div class="form-action-buttons">
-                        <input type="submit" value="Submit">
-                    </div>
-                </form>
-            </td>
-            <td>
-                <!-- TABLE TO LIST ALL RECORDS -->
-                <table class="list" id="employeeList">
-                    <thead>
-                        <tr>
-                            <th>Fullname</th>
-                            <th>EMP Code</th>
-                            <th>Salary</th>
-                            <th>City</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
 
-                    </tbody>
-                </table>
-            </td>
-        </tr>
-    </table>
-    
-    <script src="script.js"></script>
+<body>
+    <header>
+        <h1>Milestone Tracker</h1>
+        <!-- Trigger/Open The Modal -->
+        <button id="myBtn">Add Milestone</button>
+    </header>
+    <main>
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <h2>Milestone</h2>
+                </div>
+                <div class="modal-body">
+                    <!-- <form action="" onsubmit="event.preventDefault();onFormSubmit();"> -->
+                    <form action="" onsubmit="event.preventDefault();">
+                        <div>
+                            <!-- <label for="id">ID</label> -->
+                            <input type="text" name="id" id="id" placeholder="ID">
+                        </div>
+                        <div>
+                            <!-- <label for="milestone">Milestone</label> -->
+                            <input type="text" name="milestone" id="milestone" placeholder="Milestone">
+                        </div>
+                        <div>
+                            <!-- <label for="date">Date</label> -->
+                            <input type="text" name="date" id="date" placeholder="Date">
+                        </div>
+                        <div>
+                            <!-- <label for="age">Age</label> -->
+                            <input type="text" name="age" id="age" placeholder="Age">
+                        </div>
+                        <div>
+                            <!-- <label for="location">Location</label> -->
+                            <input type="text" name="location" id="location" placeholder="Location">
+                        </div>
+                        <div>
+                            <!-- <label for="notes">Notes</label> -->
+                            <input type="text" name="notes" id="notes" placeholder="Notes">
+                        </div>
+                        <!-- <div class="form-action-buttons">
+                            <input type="submit" value="Submit">
+                        </div> -->
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <div class="form-action-buttons">
+                        <input class="visible" id="btn-save" type="button" value="Save">
+                        <input class="visible" id="btn-edit" type="button" value="Edit">
+                        <input class="visible" id="btn-delete" type="button" value="Delete">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <table>
+            <tr>
+                <td>
+                    <!-- TABLE TO LIST ALL RECORDS -->
+                    <table class="list" id="employeeList">
+                        <thead>
+                            <tr>
+                                <th>Milestone</th>
+                                <th>Date</th>
+                                <th>Age</th>
+                                <th>Location</th>
+                                <th>Notes</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        <table id="table">
+
+        </table>
+    </main>
+    <footer></footer>
+
+
+    <script src="script.js" type="module"></script>
 </body>
+
 </html>
