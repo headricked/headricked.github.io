@@ -1,6 +1,5 @@
 export class Milestone {
-    constructor (id, milestone, date, age, location, notes) {
-        this.id = id,
+    constructor (milestone, date, age, location, notes) {
         this.milestone = milestone,
         this.date = date,
         this.age = age,

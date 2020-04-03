@@ -27,10 +27,10 @@
                 <div class="modal-body">
                     <!-- <form action="" onsubmit="event.preventDefault();onFormSubmit();"> -->
                     <form action="" onsubmit="event.preventDefault();">
-                        <div>
+                        <!-- <div> -->
                             <!-- <label for="id">ID</label> -->
-                            <input type="text" name="id" id="id" placeholder="ID">
-                        </div>
+                            <!-- <input type="text" name="id" id="id" placeholder="ID"> -->
+                        <!-- </div> -->
                         <div>
                             <!-- <label for="milestone">Milestone</label> -->
                             <input type="text" name="milestone" id="milestone" placeholder="Milestone">
@@ -51,15 +51,13 @@
                             <!-- <label for="notes">Notes</label> -->
                             <input type="text" name="notes" id="notes" placeholder="Notes">
                         </div>
-                        <!-- <div class="form-action-buttons">
-                            <input type="submit" value="Submit">
-                        </div> -->
                     </form>
                 </div>
                 <div class="modal-footer">
                     <div class="form-action-buttons">
                         <input class="visible" id="btn-save" type="button" value="Save">
                         <input class="visible" id="btn-edit" type="button" value="Edit">
+                        <input class="visible" id="btn-update" type="button" value="Update">
                         <input class="visible" id="btn-delete" type="button" value="Delete">
                     </div>
                 </div>
@@ -67,31 +65,10 @@
 
         </div>
 
-        <table>
-            <tr>
-                <td>
-                    <!-- TABLE TO LIST ALL RECORDS -->
-                    <table class="list" id="employeeList">
-                        <thead>
-                            <tr>
-                                <th>Milestone</th>
-                                <th>Date</th>
-                                <th>Age</th>
-                                <th>Location</th>
-                                <th>Notes</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                        </tbody>
-                    </table>
-                </td>
-            </tr>
-        </table>
         <table id="table">
-
+            <tbody></tbody>
         </table>
+
     </main>
     <footer></footer>
 

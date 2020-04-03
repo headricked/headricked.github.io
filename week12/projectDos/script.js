@@ -13,6 +13,8 @@ if (localStorage.getItem('milestones')) {
 // ATTACH EVENTLISTENER TO ADD STUDENT BUTTON
 document.querySelector('#btn-save').addEventListener('click', onFormSubmit, false);
 document.querySelector('#btn-edit').addEventListener('click', onEditMilestone, false);
+document.querySelector('#btn-update').addEventListener('click', updateMilestone.bind(null, notes), false);
+// document.querySelector('#btn-edit').addEventListener('click', onEditMilestone.bind(null, milestone), false);
 
 /*****************************************************************************
  * SUBMIT FORM DATA
@@ -34,7 +36,7 @@ function onFormSubmit() {
  ****************************************************************************/
 function addMilestone() {
     const newMilestone = new Milestone(
-        document.getElementById('id').value,
+        // document.getElementById('id').value,
         document.getElementById('milestone').value,
         document.getElementById('date').value,
         document.getElementById('age').value,
@@ -71,7 +73,7 @@ function onViewDetails(milestone) {
     console.log(milestone);
 
 
-    let inputId = milestone.id;
+    // let inputId = milestone.id;
     let inputMilestone = milestone.milestone;
     let inputDate = milestone.date;
     let inputAge = milestone.age;
@@ -81,21 +83,21 @@ function onViewDetails(milestone) {
     console.log(inputMilestone);
 
     // selectedRow = td.parentElement.parentElement;
-    document.getElementById("id").value = inputId;
+    // document.getElementById("id").value = inputId;
     document.getElementById("milestone").value = inputMilestone;
     document.getElementById("date").value = inputDate;
     document.getElementById("age").value = inputAge;
     document.getElementById("location").value = inputLocation;
     document.getElementById("notes").value = inputNotes;
 
-    document.getElementById("id").readOnly = true;
+    // document.getElementById("id").readOnly = true;
     document.getElementById("milestone").readOnly = true;
     document.getElementById("date").readOnly = true;
     document.getElementById("age").readOnly = true;
     document.getElementById("location").readOnly = true;
     document.getElementById("notes").readOnly = true;
 
-    document.getElementById("id").className = "read-only";
+    // document.getElementById("id").className = "read-only";
     document.getElementById("milestone").className = "read-only";
     document.getElementById("date").className = "read-only";
     document.getElementById("age").className = "read-only";
@@ -106,6 +108,7 @@ function onViewDetails(milestone) {
 
     document.getElementById("btn-save").className = "hidden";
     document.getElementById("btn-edit").className = "visible";
+    document.getElementById("btn-update").className = "hidden";
     document.getElementById("btn-delete").className = "visible";
 
 }
@@ -113,48 +116,32 @@ function onViewDetails(milestone) {
 /*****************************************************************************
  * ON EDIT MILESTONE RECORD
  ****************************************************************************/
-function onEditMilestone(milestone) {
-    console.log(`onEditMilestone:`);
-    console.log(milestone);
-
-
-    let inputId = milestone.id;
-    let inputMilestone = milestone.milestone;
-    let inputDate = milestone.date;
-    let inputAge = milestone.age;
-    let inputLocation = milestone.location;
-    let inputNotes = milestone.notes;
-
-    console.log(milestones[2].milestone);
-
-    // selectedRow = td.parentElement.parentElement;
-    document.getElementById("id").value = inputId;
-    document.getElementById("milestone").value = inputMilestone;
-    document.getElementById("date").value = inputDate;
-    document.getElementById("age").value = inputAge;
-    document.getElementById("location").value = inputLocation;
-    document.getElementById("notes").value = inputNotes;
+function onEditMilestone() {
+    console.log('onEditMilestone:');
+    // console.log(milestones[1].milestone);
+    document.getElementById("milestone").focus();
     modal.style.display = "block";
 
-    document.getElementById("id").readOnly = false;
+    // document.getElementById("id").readOnly = false;
     document.getElementById("milestone").readOnly = false;
     document.getElementById("date").readOnly = false;
     document.getElementById("age").readOnly = false;
     document.getElementById("location").readOnly = false;
     document.getElementById("notes").readOnly = false;
 
-    document.getElementById("id").classList.remove("read-only");
+    // document.getElementById("id").classList.remove("read-only");
     document.getElementById("milestone").classList.remove("read-only");
     document.getElementById("date").classList.remove("read-only");
     document.getElementById("age").classList.remove("read-only");
     document.getElementById("location").classList.remove("read-only");
     document.getElementById("notes").classList.remove("read-only");
 
-    document.getElementById("btn-save").className = "visible";
+    document.getElementById("btn-save").className = "hidden";
     document.getElementById("btn-edit").className = "hidden";
+    document.getElementById("btn-update").className = "visible";
     document.getElementById("btn-delete").className = "visible";
 
-    updateMilestone();
+    // updateMilestone();
 
 }
 
@@ -179,7 +166,8 @@ function loadMilestone() {
         (milestone) => {
 
             let tr = document.createElement('tr');
-            let tdId = document.createElement('td');
+            let td = document.createElement('td');
+            // let tdId = document.createElement('td');
             let tdMilestone = document.createElement('td');
             let tdDate = document.createElement('td');
             let tdAge = document.createElement('td');
@@ -188,7 +176,7 @@ function loadMilestone() {
             // let tdEdit = document.createElement('td');
 
 
-            tdId.textContent = milestone.id;
+            // tdId.textContent = milestone.id;
             tdMilestone.textContent = milestone.milestone;
             tdDate.textContent = milestone.date;
             tdAge.textContent = milestone.age;
@@ -210,7 +198,9 @@ function loadMilestone() {
             // aDelete.textContent = 'Delete';
 
 
-            tr.appendChild(aViewDetails);
+            td.appendChild(aViewDetails);
+            tr.appendChild(td);
+
             // tr.appendChild(tdMilestone);
             // tr.appendChild(tdDate);
             // tr.appendChild(tdAge);
@@ -221,6 +211,7 @@ function loadMilestone() {
             // tdEdit.appendChild(aDelete);
 
             document.querySelector('tbody').appendChild(tr);
+            document.getElementById("myBtn").focus();
 
         }
     );
@@ -233,7 +224,7 @@ function loadMilestone() {
  ****************************************************************************/
 function readFormData() {
     let formData = {};
-    formData["id"] = document.getElementById("id").value;
+    // formData["id"] = document.getElementById("id").value;
     formData["milestone"] = document.getElementById("milestone").value;
     formData["date"] = document.getElementById("date").value;
     formData["age"] = document.getElementById("age").value;
@@ -271,7 +262,7 @@ function insertNewRecord(data) {
  * RESET FORM
  ****************************************************************************/
 function resetForm() {
-    document.getElementById("id").value = "";
+    // document.getElementById("id").value = "";
     document.getElementById("milestone").value = "";
     document.getElementById("date").value = "";
     document.getElementById("age").value = "";
@@ -285,7 +276,7 @@ function resetForm() {
  ****************************************************************************/
 function onEdit(td) {
     selectedRow = td.parentElement.parentElement;
-    document.getElementById("id").value = selectedRow.cells[0].innerHTML;
+    // document.getElementById("id").value = selectedRow.cells[0].innerHTML;
     document.getElementById("milestone").value = selectedRow.cells[1].innerHTML;
     document.getElementById("date").value = selectedRow.cells[2].innerHTML;
     document.getElementById("age").value = selectedRow.cells[3].innerHTML;
@@ -297,9 +288,11 @@ function onEdit(td) {
 /*****************************************************************************
  * UPDATE MILESTONE
  ****************************************************************************/
-function updateMilestone() {
+function updateMilestone(milestone) {
 
-    let newId = document.getElementById("id").value;
+    console.log(milestones);
+
+    // let newId = document.getElementById("id").value;
     let newMilestone = document.getElementById("milestone").value;
     let newDate = document.getElementById("date").value;
     let newAge = document.getElementById("age").value;
@@ -325,7 +318,7 @@ function updateMilestone() {
  * UPDATE RECORD
  ****************************************************************************/
 function updateRecord(formData) {
-    selectedRow.cells[0].innerHTML = formData.id;
+    // selectedRow.cells[0].innerHTML = formData.id;
     selectedRow.cells[1].innerHTML = formData.milestone;
     selectedRow.cells[2].innerHTML = formData.date;
     selectedRow.cells[3].innerHTML = formData.age;
@@ -360,16 +353,20 @@ var span = document.getElementsByClassName("close")[0];
 
 // When the user clicks the button, open the modal 
 btn.onclick = function () {
+
     modal.style.display = "block";
 
-    document.getElementById("id").readOnly = false;
+    document.getElementById("milestone").focus();
+
+
+    // document.getElementById("id").readOnly = false;
     document.getElementById("milestone").readOnly = false;
     document.getElementById("date").readOnly = false;
     document.getElementById("age").readOnly = false;
     document.getElementById("location").readOnly = false;
     document.getElementById("notes").readOnly = false;
 
-    document.getElementById("id").classList.remove("read-only");
+    // document.getElementById("id").classList.remove("read-only");
     document.getElementById("milestone").classList.remove("read-only");
     document.getElementById("date").classList.remove("read-only");
     document.getElementById("age").classList.remove("read-only");
@@ -378,6 +375,7 @@ btn.onclick = function () {
 
     document.getElementById("btn-save").className = "visible";
     document.getElementById("btn-edit").className = "hidden";
+    document.getElementById("btn-update").className = "hidden";
     document.getElementById("btn-delete").className = "hidden";
 }
 

@@ -1,11 +1,9 @@
 * {
     margin: 0;
 }
-main {
-    margin: 10px;
-}
 h1,
-h2 {
+h2,
+a {
     text-align: center;
     margin: 10px 0;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -30,6 +28,7 @@ input[type=text], select {
 }
 
 #btn-save,
+#btn-update,
 button {
     width: 100%;
     background-color: #B8D8BA;
@@ -82,20 +81,22 @@ button:hover {
   
 table {
     border-collapse: collapse;
+    width: 100%;
 }
 
-th, td {
-    padding: 10px;
+tr {
+    border-bottom: #ddd 1px solid;    
 }
 
-th {
-    text-align: left;
+tr:nth-child(even) {
+    background-color: rgb(245, 244, 244);
 }
 
-thead {
-    background-color: #333;
-    color: azure;
+td {
+    padding: 30px;
+    font-size: 16px;
 }
+
 
 /* The Modal (background) */
 .modal {
@@ -180,5 +181,6 @@ thead {
 
 .read-only {
     background-color: #fafafa;
+    color: #555;
     outline: none;
 }
