@@ -12,8 +12,8 @@ if (localStorage.getItem('milestones')) {
 
 // ATTACH EVENTLISTENER TO ADD STUDENT BUTTON
 document.querySelector('#btn-save').addEventListener('click', onFormSubmit, false);
-document.querySelector('#btn-edit').addEventListener('click', onEditMilestone, false);
-document.querySelector('#btn-update').addEventListener('click', updateMilestone.bind(null, notes), false);
+// document.querySelector('#btn-edit').addEventListener('click', onEditMilestone, false);
+// document.querySelector('#btn-update').addEventListener('click', updateMilestone.bind(null, notes), false);
 // document.querySelector('#btn-edit').addEventListener('click', onEditMilestone.bind(null, milestone), false);
 
 /*****************************************************************************
@@ -28,6 +28,7 @@ function onFormSubmit() {
         updateRecord(formData);
     }
     resetForm();
+    // close modal
     modal.style.display = "none";
 }
 
@@ -104,6 +105,7 @@ function onViewDetails(milestone) {
     document.getElementById("location").className = "read-only";
     document.getElementById("notes").className = "read-only";
 
+    // open modal
     modal.style.display = "block";
 
     document.getElementById("btn-save").className = "hidden";
@@ -111,15 +113,20 @@ function onViewDetails(milestone) {
     document.getElementById("btn-update").className = "hidden";
     document.getElementById("btn-delete").className = "visible";
 
+    document.querySelector('#btn-edit').addEventListener('click', onEditMilestone.bind(null, milestone), false);
+
+
 }
 
 /*****************************************************************************
  * ON EDIT MILESTONE RECORD
  ****************************************************************************/
-function onEditMilestone() {
-    console.log('onEditMilestone:');
-    // console.log(milestones[1].milestone);
+function onEditMilestone(milestone) {
+    console.log(milestone);
+
+
     document.getElementById("milestone").focus();
+    // open modal
     modal.style.display = "block";
 
     // document.getElementById("id").readOnly = false;
@@ -141,7 +148,23 @@ function onEditMilestone() {
     document.getElementById("btn-update").className = "visible";
     document.getElementById("btn-delete").className = "visible";
 
-    // updateMilestone();
+
+    // let newMilestone = document.getElementById("milestone").value;
+    // let newDate = document.getElementById("date").value;
+    // let newAge = document.getElementById("age").value;
+    // let newLocation = document.getElementById("location").value;
+    // let newNotes = document.getElementById("notes").value;
+
+    // console.log(newMilestone);
+    // console.log(newDate);
+    // console.log(newAge);
+    // console.log(newLocation);
+    // console.log(newNotes);
+
+
+
+    // updateMilestone(milestone);
+    document.querySelector('#btn-update').addEventListener('click', updateMilestone.bind(null, milestone), false);
 
 }
 
@@ -290,28 +313,51 @@ function onEdit(td) {
  ****************************************************************************/
 function updateMilestone(milestone) {
 
-    console.log(milestones);
+    // console.log(milestones);
+    // console.log(milestone);
 
     // let newId = document.getElementById("id").value;
+    let id = milestone.id;
     let newMilestone = document.getElementById("milestone").value;
     let newDate = document.getElementById("date").value;
     let newAge = document.getElementById("age").value;
     let newLocation = document.getElementById("location").value;
     let newNotes = document.getElementById("notes").value;
 
+    console.log(id);
+    console.log(newMilestone);
+    console.log(newDate);
+    console.log(newAge);
+    console.log(newLocation);
+    console.log(newNotes);
+
+    console.log(milestones);
+    console.log(milestone.id);
 
     let newMilestones = JSON.parse(localStorage.milestones);
+
+    // take the ID of the current milestone, loop through the milestones object in localStorage,
+    // then update the local storage with the updated form value
     for (let i = 0; i < newMilestones.length; i++) {
-        if(inputName === persons[i].name){  //look for match with name
-            persons[i].age += 2;  //add two
+        if(id === newMilestones[i].id){  //look for match by milestone ID
+            newMilestones[i].milestone = newMilestone;
+            newMilestones[i].date = newDate;
+            newMilestones[i].age = newAge;
+            newMilestones[i].location = newLocation;
+            newMilestones[i].notes = newNotes;
             
-            break;  //exit loop since you found the person
+            break;  //exit loop since you found the milestone ID
         }
     }
+
     localStorage.setItem("milestones", JSON.stringify(newMilestones));  //put the object back
 
-
+    // close the modal
     modal.style.display = "none";
+
+    // load updated milestones from local storage
+    // milestones = JSON.parse(localStorage.getItem('milestones'));
+    loadMilestone();
 }
 
 /*****************************************************************************
