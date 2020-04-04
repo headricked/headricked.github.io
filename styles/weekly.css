@@ -27,3 +27,14 @@ code {
     border-radius: 5px;
     color: #ddd;
 }
+
+input[button],
+button {
+    border: 1px solid #333;
+    border-radius: 5px;
+}
+
+input[text],
+input[textarea] {
+    border: 1px solid #333;
+}
