@@ -189,16 +189,15 @@ function loadMilestone() {
 /*****************************************************************************
  * READ FORM DATA
  ****************************************************************************/
-// function readFormData() {
-//     let formData = {};
-//     // formData["id"] = document.getElementById("id").value;
-//     formData["milestone"] = document.getElementById("milestone").value;
-//     formData["date"] = document.getElementById("date").value;
-//     formData["age"] = document.getElementById("age").value;
-//     formData["location"] = document.getElementById("location").value;
-//     formData["notes"] = document.getElementById("notes").value;
-//     return formData;
-// }
+function readFormData() {
+    let formData = {};
+    formData["milestone"] = document.getElementById("milestone").value;
+    formData["date"] = document.getElementById("date").value;
+    formData["age"] = document.getElementById("age").value;
+    formData["location"] = document.getElementById("location").value;
+    formData["notes"] = document.getElementById("notes").value;
+    return formData;
+}
 
 /*****************************************************************************
  * INSERT NEW RECORD
