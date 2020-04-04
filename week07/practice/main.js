@@ -1,10 +1,10 @@
-const textButton = document.getElementById('number');
-const apiButton = document.getElementById('chuck');
+const textButton = document.getElementById('person');
+const apiButton = document.getElementById('number');
 const outputDiv = document.getElementById('output');
 
 // const textURL = 'http://numbersapi.com/random';
 const textURL = 'https://randomuser.me/api/?results=1';
-const apiURL = 'https://api.chucknorris.io/jokes/random';
+const apiURL = 'http://numbersapi.com/random';
 
 // textButton.addEventListener('click', () => {
 //     fetch(textURL)
