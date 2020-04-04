@@ -10,7 +10,7 @@ if (localStorage.getItem('milestones')) {
     console.log("done");
 }
 
-// ATTACH EVENTLISTENER TO ADD STUDENT BUTTON
+// ADD EVENTLISTENER
 document.querySelector('#btn-save').addEventListener('click', onFormSubmit, false);
 // document.querySelector('#btn-edit').addEventListener('click', onEditMilestone, false);
 // document.querySelector('#btn-update').addEventListener('click', updateMilestone.bind(null, notes), false);
@@ -114,6 +114,7 @@ function onViewDetails(milestone) {
     document.getElementById("btn-delete").className = "visible";
 
     document.querySelector('#btn-edit').addEventListener('click', onEditMilestone.bind(null, milestone), false);
+    document.querySelector('#btn-delete').addEventListener('click', deleteMilestone.bind(null, milestone), false);
 
 
 }
@@ -165,6 +166,7 @@ function onEditMilestone(milestone) {
 
     // updateMilestone(milestone);
     document.querySelector('#btn-update').addEventListener('click', updateMilestone.bind(null, milestone), false);
+    // document.querySelector('#btn-delete').addEventListener('click', deleteMilestone.bind(null, milestone), false);
 
 }
 
@@ -376,13 +378,48 @@ function updateRecord(formData) {
 /*****************************************************************************
  * DELETE RECORD
  ****************************************************************************/
-function onDelete(td) {
+function deleteMilestone(milestone) {
+    console.log(`deleteMilestone()`);
+
     if (confirm(`Are you sure you want to deleted this milestone?`)) {
+
+        console.log(milestone);
+        console.log(milestones);
+
+        let pos = students.indexOf(student);
+        if (pos < 0) {
+            return;
+        }
+    
+        students.splice(pos, 1);
+    
+        // SAVE TO LOCAL STORAGE
+        saveStudent(students);
+    
+        // POPULATE THE TABLE
+        loadStudent();
+        
+    
+
+
+
         let row = td.parentElement.parentElement;
         document.getElementById("employeeList").deleteRow(row.rowIndex);
         resetForm();
     }
 }
+
+
+// /*****************************************************************************
+//  * DELETE RECORD
+//  ****************************************************************************/
+// function onDelete(td) {
+//     if (confirm(`Are you sure you want to deleted this milestone?`)) {
+//         let row = td.parentElement.parentElement;
+//         document.getElementById("employeeList").deleteRow(row.rowIndex);
+//         resetForm();
+//     }
+// }
 
 
 /*****************************************************************************
