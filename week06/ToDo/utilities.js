@@ -97,9 +97,7 @@ function renderCompleted() {
  * APPLY FILTER TO DISPLAY ALL
  *****************************************************************************/
 function filterAll() {
-    console.log('filterAll()');
-
-    // POPULATE THE TABLE
+    // populate entire list of items (completed or not completed)
     loadToDo();
 }
 
@@ -107,14 +105,32 @@ function filterAll() {
  * APPLY FILTER TO DISPLAY ACTIVE ONLY
  *****************************************************************************/
 function filterActive() {
-    console.log('filterActive()');
+    toDoList.forEach(
+        (toDoItem) => {
+            console.log(`Completed toDoItem:`);
+            if (toDoItem.completed == false) {
+                console.log(toDoItem);
+                // toDoItem.classList.remove('hidden');
+            }
+            countRemainder();
+        }
+    );
 }
 
 /******************************************************************************
  * APPLY FILTER TO DISPLAY COMPLETED ONLY
  *****************************************************************************/
 function filterCompleted() {
-    console.log('filterCompleted()');
+    toDoList.forEach(
+        (toDoItem) => {
+            console.log(`Completed toDoItem:`);
+            if (toDoItem.completed == true) {
+                console.log(toDoItem);
+                // toDoItem.classList.add('hidden');
+            }
+            countRemainder();
+        }
+    );
 }
 
 /******************************************************************************
