@@ -46,7 +46,7 @@ function checkBox() {
     // toDoList[pos].completed = true;
 
 
-    if(this.checked) {
+    if (this.checked) {
         console.log('item checked');
         toDoList[pos].completed = true;
         // strike through the content of elements of classname 'item'
@@ -54,10 +54,10 @@ function checkBox() {
         this.parentElement.nextSibling.classList.add('completed');
 
         toDoList.forEach(toDoItem => console.log(toDoItem));
-    
+
         // SAVE TO LOCAL STORAGE
         saveToDo(toDoList);
-    
+
     } else {
         console.log('item un-checked');
         toDoList[pos].completed = false;
@@ -67,7 +67,10 @@ function checkBox() {
 
         // SAVE TO LOCAL STORAGE
         saveToDo(toDoList);
+
     }
+
+    countRemainder();
 }
 
 /******************************************************************************
@@ -196,7 +199,6 @@ function deleteToDo(toDoItem) {
 
 }
 
-
 /******************************************************************************
  * LOAD TO DO INTO HTML TABLE
  *****************************************************************************/
@@ -213,7 +215,7 @@ function loadToDo() {
             }
 
             // console.log(toDoList[pos].completed);
-        
+
             // create elements
             let tr = document.createElement('tr');
             let tdCheck = document.createElement('td');
@@ -224,9 +226,9 @@ function loadToDo() {
 
             // Assigning the attributes to new checkbox element
             tdCheck.style.width = "1px";
-            tdCheckBox.type  = "checkbox";
-            tdCheckBox.name  = "toDoCheckbox";
-            tdCheckBox.value  = toDoItem.id;
+            tdCheckBox.type = "checkbox";
+            tdCheckBox.name = "toDoCheckbox";
+            tdCheckBox.value = toDoItem.id;
             tdCheckBox.checked = toDoItem.completed;
 
 
@@ -257,6 +259,8 @@ function loadToDo() {
 
             document.querySelector('tbody').appendChild(tr);
 
+            countRemainder();
+
         }
     );
 }
@@ -281,3 +285,18 @@ function completeToDo(toDoList, completed) {
         }
     }
 }
+
+/******************************************************************************
+ * COUNT REMAINDER
+ *****************************************************************************/
+function countRemainder() {
+    // filter the toDoList to find completed (false) items
+    var remaining = toDoList.filter(function (d) {
+        return d.completed === false;
+    }).length;
+
+    // display the count
+    document.getElementById("items-remaining").innerText = remaining;
+
+}
+
