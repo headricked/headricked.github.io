@@ -28,9 +28,12 @@ for (var i = 0; i < checkboxElems.length; i++) {
     // console.log(checkboxElems[i]);
 }
 
-
-// MARK TO DO ITEM COMPLETED
+/******************************************************************************
+ * CHECKBOX - MARK TO DO ITEM COMPLETED
+ *****************************************************************************/
 function checkBox() {
+
+    console.log(`checkBox()`);
 
     let toDoItemId = this.value;
     let pos = toDoList.findIndex(t => t.id == toDoItemId); // coerce toDoItemId to string with ==
@@ -67,7 +70,9 @@ function checkBox() {
     }
 }
 
-// RENDER COMPLETED ITEMS WITH STRIKETHROUGH
+/******************************************************************************
+ * RENDER COMPLETED - ITEMS WITH STRIKETHROUGH
+ *****************************************************************************/
 function renderCompleted() {
     // do stuff
     let toDoItems = JSON.parse(localStorage.toDoList);
@@ -85,7 +90,9 @@ function renderCompleted() {
 
 }
 
-// APPLY FILTER TO DISPLAY ALL
+/******************************************************************************
+ * APPLY FILTER TO DISPLAY ALL
+ *****************************************************************************/
 function filterAll() {
     console.log('filterAll()');
 
@@ -93,22 +100,30 @@ function filterAll() {
     loadToDo();
 }
 
-// APPLY FILTER TO DISPLAY ACTIVE ONLY
+/******************************************************************************
+ * APPLY FILTER TO DISPLAY ACTIVE ONLY
+ *****************************************************************************/
 function filterActive() {
     console.log('filterActive()');
 }
 
-// APPLY FILTER TO DISPLAY COMPLETED ONLY
+/******************************************************************************
+ * APPLY FILTER TO DISPLAY COMPLETED ONLY
+ *****************************************************************************/
 function filterCompleted() {
     console.log('filterCompleted()');
 }
 
-// FOCUS TEXT FIELD ON ADD TO DO BUTTON CLICK
+/******************************************************************************
+ * FOCUS TEXT FIELD ON ADD TO DO BUTTON CLICK
+ *****************************************************************************/
 function autoFocus() {
     document.getElementById('content').focus();
 }
 
-// ADD TODO
+/******************************************************************************
+ * ADD TODO
+ *****************************************************************************/
 function addToDo() {
 
     // get the timestamp
@@ -142,12 +157,16 @@ function addToDo() {
 
 }
 
-// CLEAR FORM FIELD FOLLOWING SUCCESSFUL SUBMISSION
+/******************************************************************************
+ * CLEAR FORM FIELD FOLLOWING SUCCESSFUL SUBMISSION
+ *****************************************************************************/
 function clearFields() {
     document.querySelector('#content').value = '';
 }
 
-// CLEAR THE TABLE OF DATA
+/******************************************************************************
+ * CLEAR THE TABLE OF DATA
+ *****************************************************************************/
 function cleartoDoList() {
     let table = document.querySelector('tbody');
     while (table.rows.length > 0) {
@@ -155,7 +174,9 @@ function cleartoDoList() {
     }
 }
 
-// DELETE TO DO ITEM
+/******************************************************************************
+ * DELETE TO DO ITEM
+ *****************************************************************************/
 function deleteToDo(toDoItem) {
     console.log('Deleted:');
     console.log(toDoItem);
@@ -176,7 +197,9 @@ function deleteToDo(toDoItem) {
 }
 
 
-// LOAD TO DO INTO HTML TABLE
+/******************************************************************************
+ * LOAD TO DO INTO HTML TABLE
+ *****************************************************************************/
 function loadToDo() {
     cleartoDoList();
 
@@ -238,12 +261,16 @@ function loadToDo() {
     );
 }
 
-// SAVE toDoList INTO JSON STRING
+/******************************************************************************
+ * SAVE toDoList INTO JSON STRING
+ *****************************************************************************/
 function saveToDo(toDoList) {
     localStorage.setItem('toDoList', JSON.stringify(toDoList));
 }
 
-// UPDATE toDoList IN LOCAL STORAGE
+/******************************************************************************
+ * UPDATE toDoList IN LOCAL STORAGE
+ *****************************************************************************/
 function completeToDo(toDoList, completed) {
     let toDoItem = JSON.parse(localStorage.toDoList);
 
